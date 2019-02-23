@@ -14,7 +14,8 @@ public class TestSort {
         Tester.<Sorter, int[]>create(sorter -> sorter.sort(array.clone()))
                 .andThen(Printer::print)
                 .test(new InsertionSorter())
-                .test(new MergeSorter());
+                .test(new MergeSorter())
+                .test(new HeapSorter());
 
     }
 }
