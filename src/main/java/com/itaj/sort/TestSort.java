@@ -15,7 +15,8 @@ public class TestSort {
                 .andThen(Printer::print)
                 .test(new InsertionSorter())
                 .test(new MergeSorter())
-                .test(new HeapSorter());
+                .test(new HeapSorter())
+                .test(new QuickSorter());
 
     }
 }
