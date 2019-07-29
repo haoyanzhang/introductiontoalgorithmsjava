@@ -8,7 +8,7 @@ import com.itaj.common.TimeMonitor;
 public class TestSort {
 
     public static void main(String[] args) {
-        int[] array = RandomGenerator.generatePositiveIntArray(100000);
+        int[] array = RandomGenerator.generatePositiveIntArray(10000);
         Printer.print(array);
 
         Tester.<Sorter, int[]>create(sorter -> sorter.sort(array.clone()))
