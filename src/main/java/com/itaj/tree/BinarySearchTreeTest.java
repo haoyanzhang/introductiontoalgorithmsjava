@@ -13,12 +13,12 @@ public class BinarySearchTreeTest {
         binarySearchTree.insert(8);
         binarySearchTree.insert(7);
 
-        binarySearchTree.foreach(i -> System.out.print(i + " "));
+        binarySearchTree.forEach(i -> System.out.print(i + " "));
         System.out.print("\n");
 
         binarySearchTree.delete(4);
 
-        binarySearchTree.foreach(i -> System.out.print(i + " "));
+        binarySearchTree.forEach(i -> System.out.print(i + " "));
         System.out.print("\n");
 
         binarySearchTree.insert(9);
