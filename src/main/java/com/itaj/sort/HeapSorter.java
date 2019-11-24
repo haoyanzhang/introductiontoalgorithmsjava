@@ -1,46 +1,17 @@
 package com.itaj.sort;
 
+import com.itaj.heap.Heaps;
+
 public class HeapSorter implements Sorter {
 
     @Override
     public int[] sort(int[] data) {
-        for (int i = 0; i < data.length; i++) {
-            int value = data[i];
-            int j = i;
-            while (true) {
-                int parent = (j - 1) >> 1;
-                if (j > 0 && value > data[parent]) {
-                    data[j] = data[parent];
-                    j = parent;
-                } else {
-                    data[j] = value;
-                    break;
-                }
-            }
+        Heaps.makeHeap(data);
+        int[] result = new int[data.length];
+        for (int i = 0 ;i < data.length; i++) {
+            result[data.length - i - 1
+                    ] = Heaps.removeFirst(data, data.length - i);
         }
-        for (int i = data.length - 1; i >= 0; i--) {
-            int temp = data[i];
-            data[i] = data[0];
-            data[0] = temp;
-            int j = 0;
-            while (true) {
-                int l = j * 2 + 1;
-                int r = l + 1;
-                if (l >= i) {
-                    break;
-                } else if (r >= i || data[l] >= data[r]) {
-                    temp = data[j];
-                    data[j] = data[l];
-                    data[l] = temp;
-                    j = l;
-                } else {
-                    temp = data[j];
-                    data[j] = data[r];
-                    data[r] = temp;
-                    j = r;
-                }
-            }
-        }
-        return data;
+        return result;
     }
 }

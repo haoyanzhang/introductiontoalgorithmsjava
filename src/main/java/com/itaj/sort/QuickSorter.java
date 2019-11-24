@@ -1,5 +1,7 @@
 package com.itaj.sort;
 
+import com.itaj.common.Arrays;
+
 public class QuickSorter implements Sorter {
 
     @Override
@@ -13,20 +15,16 @@ public class QuickSorter implements Sorter {
             return;
         }
         int last = data[to - 1];
-        int index = from;
-        for (int i = from ; i < to -1 ; i++) {
-            if (data[i] < last) {
-                if (index != i) {
-                    int temp = data[index];
-                    data[index] = data[i];
-                    data[i] = temp;
-                    index ++;
-                }
+        int i = from - 1;
+        for (int j = from; j <= to - 2; j++) {
+            if (data[j] < last) {
+                i++;
+                Arrays.swap(data, i, j);
             }
         }
-        data[to - 1] = data[index];
-        data[index] = last;
-        quickSort(data, from, index);
-        quickSort(data, index + 1, to);
+        i++;
+        Arrays.swap(data, to - 1, i);
+        quickSort(data, from, i);
+        quickSort(data, i + 1, to);
     }
 }

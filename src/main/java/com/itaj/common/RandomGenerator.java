@@ -6,6 +6,10 @@ public class RandomGenerator {
 
     private static Random random = new Random();
 
+    public static int generateInt(int bound) {
+        return random.nextInt(bound);
+    }
+
     public static int[] generatePositiveIntArray(int length){
         return random.ints(length, 0,length*10).toArray();
     }
